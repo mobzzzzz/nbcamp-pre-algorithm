@@ -3,12 +3,14 @@ class Solution {
         var answer: Long = 0
         // var lowNum = if (a > b) b else a
         // var highNum = if (a > b) a else b
-        var lowNum = minOf(a, b)
-        var highNum = maxOf(a, b)
+        var lowNum = minOf(a, b).toLong()
+        var highNum = maxOf(a, b).toLong()
         
-        for (i in lowNum..highNum) {
-            answer += i.toLong()
-        }
+        answer = (lowNum..highNum).toList().sum()
+        
+        // for (i in lowNum..highNum) {
+        //     answer += i.toLong()
+        // }
         
         return answer
     }
