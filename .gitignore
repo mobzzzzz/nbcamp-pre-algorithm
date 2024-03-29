@@ -27,4 +27,5 @@ replay_pid*
 ._.DS_Store
 **/.DS_Store
 **/._.DS_Store
-Web Workspace/Album/config.js
+
+**/config.js
