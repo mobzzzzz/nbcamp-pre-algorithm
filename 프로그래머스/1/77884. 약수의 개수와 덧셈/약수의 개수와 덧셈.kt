@@ -23,4 +23,6 @@ class Solution {
     }
 
     fun solution2(left: Int, right: Int): Int = (left..right).map { i -> if ((1..i).filter { i % it == 0 }.size % 2 == 0) i else -i }.sum()
+
+    fun solution3(left: Int, right: Int): Int = (left..right).map { i -> if (i.divisorCount() % 2 == 0) i else -i }.sum()
 }
