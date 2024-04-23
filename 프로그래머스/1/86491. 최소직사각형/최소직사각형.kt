@@ -9,6 +9,21 @@ class Solution {
         
         return maxWidth * maxHeight
     }
+
+    fun solution2(sizes: Array<IntArray>): Int {
+        val widths = mutableListOf<Int>()
+        val heights = mutableListOf<Int>()
+
+        sizes.forEach {
+            widths.add(Math.max(it[0], it[1]))
+            heights.add(Math.min(it[0], it[1]))
+        }
+
+        return widths.maxOrNull()!! * heights.maxOrNull()!!
+    }
+
+    fun solution3(sizes: Array<IntArray>): Int
+        = sizes.map{it.maxOrNull()!!}.maxOrNull()!! * sizes.map{it.minOrNull()!!}.maxOrNull()!!
     
     // fun solution(sizes: Array<IntArray>): Int = sizes.sortedBy { it[0] }.map { it[0] to it[1] }
     //     .let { widths, heights ->
