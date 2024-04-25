@@ -1,5 +1,6 @@
 class Solution {
     fun solution(s: String): Int {
+        var result = s
         val numberPatternMap = mapOf(
             "zero" to 0,
             "one" to 1,
@@ -13,19 +14,7 @@ class Solution {
             "nine" to 9
         )
         
-        var result = ""
-        var stringForSearch = ""
-        
-        s.forEach { char ->
-            if (char.isDigit()) result += char
-            else {
-                stringForSearch += char
-                numberPatternMap.get(stringForSearch)?.let {
-                    result += it
-                    stringForSearch = ""
-                }
-            }
-        }
+        numberPatternMap.forEach { result = result.replace(it.key, it.value.toString()) }
         
         return result.toInt()
     }
