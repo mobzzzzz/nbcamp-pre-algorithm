@@ -26,4 +26,23 @@ class Solution {
 
         return answer
     }
+
+    fun solution2(s: String): Int {
+        var answer: Int = 0
+
+        val stack = mutableListOf<Char>()
+
+        s.forEach { 
+            if (stack.isEmpty()) {
+                answer++
+                stack.add(it)
+            } else if (stack.first() == it) {
+                stack.add(it)
+            } else {
+                stack.removeFirst()
+            }
+        }
+
+        return answer
+    }
 }
