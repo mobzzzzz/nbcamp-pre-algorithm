@@ -21,4 +21,20 @@ class Solution {
 
         return builder.toString()
     }
+
+    fun solution2(survey: Array<String>, choices: IntArray): String {
+        val scoreMap = mutableMapOf("RT" to 0, "CF" to 0, "JM" to 0, "AN" to 0)
+
+        survey.forEachIndexed { index, key ->
+            if (scoreMap.keys.contains(key)) {
+                scoreMap[key] = scoreMap[key]!! + choices[index] - 4
+            } else {
+                scoreMap[key.reversed()] = scoreMap[key.reversed()]!! - (choices[index] - 4)
+            }
+        }
+
+        var answer = ""
+        scoreMap.forEach { (key, value) -> answer += if(value > 0) key[1] else key[0] }
+        return answer
+    }
 }
