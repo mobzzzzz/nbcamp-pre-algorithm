@@ -38,4 +38,12 @@ class Solution {
 
         return answer
     }
+
+    fun solution2(today: String, terms: Array<String>, privacies: Array<String>) = privacies.indices.filter {
+        privacies[it].split(" ").first().split("\\.".toRegex()).map(String::toInt)
+            .let { (y, m, d) -> (y * 12 * 28) + (m * 28) + d } + (terms.map { it.split(" ") }
+            .associate { (a, b) -> a to b.toInt() }
+            .getOrDefault(privacies[it].split(" ").last(), 0) * 28) <= today.split("\\.".toRegex()).map(String::toInt)
+            .let { (y, m, d) -> (y * 12 * 28) + (m * 28) + d }
+    }.map { it + 1 }
 }
